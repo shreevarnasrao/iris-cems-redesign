@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>CEMS | IRIS</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button type="button" class="logo" data-act="home">IRIS</button>
+  <nav class="topnav" aria-label="IRIS">
+    <span>Institute</span>
+    <span>Academics</span>
+    <span>Campus</span>
+    <span>Alumni</span>
+  </nav>
+  <div class="spacer"></div>
+  <label class="search">
+    <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Search for..." aria-label="Search events, clubs, venues" autocomplete="off">
+  </label>
+  <div class="role">
+    <span class="role-label">Preview as</span>
+    <div class="seg" role="group" aria-label="Preview as">
+      <button type="button" data-act="role" data-role="student" aria-pressed="true">Student</button>
+      <button type="button" data-act="role" data-role="club" aria-pressed="false">Club</button>
+      <button type="button" data-act="role" data-role="council" aria-pressed="false">Council</button>
+    </div>
+  </div>
+  <span class="hdr-icon" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+  <span class="hdr-icon" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></span>
+  <span class="avatar" aria-hidden="true">SR</span>
+</header>
+<div class="subbar">
+  <div class="mod-title">CEMS <span>| IRIS</span></div>
+  <div class="crumb">Home / CEMS</div>
+</div>
+<div class="shell">
+  <aside class="side" id="side" aria-label="CEMS"></aside>
+  <main id="main"></main>
+</div>
+<p class="foot">Design mockup for the IRIS Product Team recruitment, Task 2. Roll 251ME355. Sample data. Not the official IRIS site.</p>
+<div class="overlay" id="overlay" data-act="close" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drTitle" aria-hidden="true" hidden></aside>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<noscript><p class="foot">This mockup needs JavaScript.</p></noscript>
+<script src="app.js"></script>
+</body>
+</html>
