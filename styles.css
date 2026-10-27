@@ -331,9 +331,14 @@ h2 { margin: 0; font-size: 14px; font-weight: 600; }
 .process p { margin: 0 0 10px; color: #d5d5d5; }
 .process ol { margin: 0 0 12px; padding-left: 18px; color: #d5d5d5; }
 .process li { margin: 0 0 6px; }
-.shot { margin: 0 0 16px; }
-.shot img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 8px; }
-.shot figcaption { color: var(--muted); font-size: 13px; margin-top: 6px; max-width: 80ch; }
+.shot { margin: 0 0 22px; max-width: 100%; }
+.shot img {
+  width: 100%; max-width: 100%; height: auto; aspect-ratio: 1534 / 650;
+  display: block; object-fit: contain; background: #111;
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.shot img[height="708"] { aspect-ratio: 1534 / 708; }
+.shot figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; max-width: 80ch; }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 4px; }
 .paper { background: #e4e4e4; color: #1c1c1c; border-radius: 8px; padding: 12px; }
 .paper .tag { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #555; margin: 0 0 8px; font-weight: 700; }

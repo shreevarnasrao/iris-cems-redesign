@@ -98,16 +98,25 @@ const ICONS = {
 };
 const icon = (n) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
 
+const toastTimers = new Set();
+function clearToasts() {
+  toastTimers.forEach((id) => clearTimeout(id));
+  toastTimers.clear();
+  const box = $("#toasts");
+  if (box) box.replaceChildren();
+}
 function toast(msg, opts = {}) {
   const box = $("#toasts");
   const t = document.createElement("div");
   t.className = "toast" + (opts.error ? " err" : "");
   t.innerHTML = `<span class="msg">${esc(msg)}</span>${opts.action ? `<button type="button">${esc(opts.action)}</button>` : ""}`;
-  const remove = () => t.remove();
+  let timer = 0;
+  const remove = () => { clearTimeout(timer); toastTimers.delete(timer); t.remove(); };
   if (opts.action) t.querySelector("button").addEventListener("click", () => { if (opts.onAction) opts.onAction(); remove(); });
   box.appendChild(t);
   while (box.children.length > 3) box.firstElementChild.remove();
-  setTimeout(remove, opts.ms || 4200);
+  timer = setTimeout(remove, opts.ms || 2800);
+  toastTimers.add(timer);
 }
 
 function clashes(c, excludeId) {
@@ -376,10 +385,10 @@ function viewProcess() {
     <p>CEMS is the calendar and events module on IRIS. The brief asks for a web redesign that clubs will actually use to schedule and announce events. These notes are from the live module on 21 Oct 2026, then the steps that followed.</p>
 
     <h2 id="proc-evidence">What the live module shows</h2>
-    <figure class="shot"><img src="assets/before-1.png" alt="Live CEMS in October 2026. One event chip on the 28th, a subscriptions panel, and the IRIS header."><figcaption>21 Oct 2026, iris.nitk.ac.in/cems. October has one event chip, on the 28th. The right panel is "Calendar Subscriptions". Browser chrome and the profile photo are removed.</figcaption></figure>
-    <figure class="shot"><img src="assets/before-2.png" alt="Live CEMS calendar with the 21st selected and subscriptions paged 5 at a time."><figcaption>Same day. The subscription list says "Showing 1 to 5 of 61 entries", pages through 13. ACM NITK and Amateur Astronomy Club are checkboxes on page 1. The sidebar says "No CEMS or CEMS Club roles present."</figcaption></figure>
-    <figure class="shot"><img src="assets/before-4.png" alt="Live CEMS month grid for October 2026, mostly empty, with the subscriptions panel."><figcaption>The month grid is the whole screen. The 21st is marked as today. Almost every other cell is empty.</figcaption></figure>
-    <figure class="shot"><img src="assets/before-3.png" alt="Category colour legend under the live CEMS calendar, about twenty labels."><figcaption>Under the grid, a legend of about twenty colours: Workshops, Expert Lecture, National Conference, Faculty Development Program, GIAN Course, Hackathon, Competitions, Cultural, and more. Names of module designers in the sidebar are covered.</figcaption></figure>
+    <figure class="shot"><img src="assets/before-1.png" width="1534" height="650" loading="eager" decoding="sync" alt="Live CEMS in October 2026. One event chip on the 28th, a subscriptions panel, and the IRIS header."><figcaption>21 Oct 2026, iris.nitk.ac.in/cems. October has one event chip, on the 28th. The right panel is "Calendar Subscriptions". Browser chrome and the profile photo are removed.</figcaption></figure>
+    <figure class="shot"><img src="assets/before-2.png" width="1534" height="650" loading="eager" decoding="sync" alt="Live CEMS calendar with the 21st selected and subscriptions paged 5 at a time."><figcaption>Same day. The subscription list says "Showing 1 to 5 of 61 entries", pages through 13. ACM NITK and Amateur Astronomy Club are checkboxes on page 1. The sidebar says "No CEMS or CEMS Club roles present."</figcaption></figure>
+    <figure class="shot"><img src="assets/before-4.png" width="1534" height="708" loading="eager" decoding="sync" alt="Live CEMS month grid for October 2026, mostly empty, with the subscriptions panel."><figcaption>The month grid is the whole screen. The 21st is marked as today. Almost every other cell is empty.</figcaption></figure>
+    <figure class="shot"><img src="assets/before-3.png" width="1534" height="650" loading="eager" decoding="sync" alt="Category colour legend under the live CEMS calendar, about twenty labels."><figcaption>Under the grid, a legend of about twenty colours: Workshops, Expert Lecture, National Conference, Faculty Development Program, GIAN Course, Hackathon, Competitions, Cultural, and more. Names of module designers in the sidebar are covered.</figcaption></figure>
     <ol>
       <li>A student cannot see what is on tonight. The month is a wall of empty cells, and the one event is a small chip on the 28th.</li>
       <li>Following a club means paging a checkbox list, five rows at a time, 61 entries.</li>
@@ -538,6 +547,7 @@ function go(view) {
   S.view = view;
   if (view !== "approvals") S.reasonOpen = null;
   closeDrawer();
+  clearToasts();
   render(true);
   writeHash();
 }
