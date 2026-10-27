@@ -392,7 +392,7 @@ function viewProcess() {
     <ol>
       <li>A student cannot see what is on tonight. The month is a wall of empty cells, and the one event is a small chip on the 28th.</li>
       <li>Following a club means paging a checkbox list, five rows at a time, 61 entries.</li>
-      <li>The sidebar tells a club they have no role, so there is no way to post the event that would fill the grid.</li>
+      <li>I used a student account with no CEMS roles, so I could not see the club screens. CEMS already has them: club committee members create events, and a Student Council Secretary approves them (<a href="https://blog.iris.nitk.ac.in/cems-module/" target="_blank" rel="noopener">IRIS CEMS guide</a>). The one October event may come from the default subscribed-only view, or from a quiet month.</li>
       <li>Colour only means something after you scroll to the legend, and most of those labels are institute programmes, not a club night.</li>
     </ol>
 
@@ -463,7 +463,7 @@ function viewProcess() {
       </div>
       <p style="margin:8px 0 0;font-size:12px">The bar turns dark when the hall is already held. Free slots are buttons: move the event instead of finding out after the poster is up. Council sees the same clash on the approval card and can send a reason back.</p>
     </div>
-    <p>The first screenshot's sidebar says "No CEMS or CEMS Club roles present." That is why October stays empty. Club studio is the missing path: draft, waiting for approval, live, changes requested. The form draws that day. On 1 Nov the seminar hall is held by IEEE from 17:30 to 19:00, and E-Cell has also asked for 18:00. The bar flags it and offers the next free slots. A hard clash cannot be sent for approval. Council gets the same flag, and "Request changes" needs a written reason, which the club sees on the row.</p>
+    <p>The sidebar says "No CEMS or CEMS Club roles present." because I used a student account, so I could not see the club screens. CEMS already lets club committee members create events, and a Student Council Secretary approves them (<a href="https://blog.iris.nitk.ac.in/cems-module/" target="_blank" rel="noopener">IRIS CEMS guide</a>). Club studio improves that existing create, approve, and publish flow: draft, waiting for approval, live, changes requested. The form draws that day. On 1 Nov the seminar hall is held by IEEE from 17:30 to 19:00, and E-Cell has also asked for 18:00. The bar flags it and offers the next free slots. A hard clash cannot be sent for approval. Council gets the same flag, and "Request changes" needs a written reason, which the club sees on the row.</p>
 
     <h2 id="proc-final">Final screens</h2>
     <p>Same IRIS header and sidebar. Three roles. The screens themselves are the rest of this site.</p>
